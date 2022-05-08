@@ -1,9 +1,7 @@
 const express = require('express');
 const path = require('path')
 const app = express()
-
 const port = 3000;
-app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
     const busHeading = "Best Bus in the world";
@@ -49,10 +47,19 @@ app.get('/:bus_id', (req, res) => {
         },
         {
             id:5,
-            name:"shiraz"
+            name:"shiraz",
         }
     ]
+   
+    
     let obj = buslist.find(bus => bus.id == req.params.bus_id);
+    if(!obj){
+        obj = {
+            id:1,
+            name:"",
+        }
+    }
+   
     res.render('buslist',{buslist:[obj],busHeading:busHeading});
 //   res.send('hello world')
 })
