@@ -9,8 +9,8 @@
 <body>
     <h1> <%= busHeading %></h1>
     <ul>
+        <%= buslist.name %>
         <% buslist.forEach(function(bus){ %>
-           
             <li><%= bus.name %></li>
         <% }); %>
     </ul>

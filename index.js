@@ -28,4 +28,32 @@ app.get('/', (req, res) => {
     res.render('buslist',{buslist:buslist,busHeading:busHeading});
   res.send('hello world')
 })
+app.get('/:bus_id', (req, res) => {
+    const busHeading = "Bus List";
+    const buslist = [
+        {
+            id:1,
+            name:"w18",
+        },
+        {
+            id:2,
+            name:"f18",
+        },
+        {
+            id:3,
+            name:"mercedes"
+        },
+        {
+            id:4,
+            name:"murwat"
+        },
+        {
+            id:5,
+            name:"shiraz"
+        }
+    ]
+    let obj = buslist.find(bus => bus.id == req.params.bus_id);
+    res.render('buslist',{buslist:[obj],busHeading:busHeading});
+//   res.send('hello world')
+})
 app.listen(port)
