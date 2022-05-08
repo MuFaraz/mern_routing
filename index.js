@@ -6,6 +6,7 @@ const port = 3000;
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
+    const busHeading = "Best Bus in the world";
     const buslist = [
         {
             name:"w18",
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
             name:"shiraz"
         }
     ]
-    res.render('buslist',{buslist:buslist});
+    res.render('buslist',{buslist:buslist,busHeading:busHeading});
   res.send('hello world')
 })
 app.listen(port)
