@@ -3,7 +3,13 @@ const path = require('path')
 const app = express()
 const port = 3000;
 app.set('view engine', 'ejs')
-app.get('/', (req, res) => {
+app.use(express.static('public'))
+app.use('/static', express.static(path.join(__dirname, 'public/assets')))
+
+app.get('/login',(req,res) => {
+    res.render('login')
+})
+app.get('/carlist', (req, res) => {
     const busHeading = "Best Bus in the world";
     const buslist = [
         {
@@ -63,4 +69,14 @@ app.get('/:bus_id', (req, res) => {
     res.render('buslist',{buslist:[obj],busHeading:busHeading});
 //   res.send('hello world')
 })
-app.listen(port)
+
+function test(x) {
+    console.log(x);
+}
+
+function test1(func) {
+    func("Hello World!");
+}
+app.listen(port,function(){
+    test1(test)
+})
