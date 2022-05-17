@@ -6,6 +6,8 @@ const port = 3000;
 
 app.get('/', (req, res) => {
    
+
+    
     const salaries = [100,200,300,400];
     const getSalary = ()=>{
         return new Promise((resolve,rejects)=>{
@@ -58,6 +60,17 @@ app.get('/', (req, res) => {
         })
     })
     // getMessageOfSalary()
+
+
+    async function resolveApis(){
+        const salary = await getMessageOfSalary();
+        return salary;
+        // console.log("da",salary)
+    }
+    resolveApis().then((res)=>{
+        console.log("hogya call");
+        console.log(res)
+    });
 })
 
 app.listen(port,function(){
