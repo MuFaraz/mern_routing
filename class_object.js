@@ -20,28 +20,31 @@ class Human {
     this.name = name;
     this.age = age;
   }
+  test(){
+      console.log("test")
+  }
 }
 // student class 
 class Student extends Human {
-  constructor(name, age, kuch_bhi) {
+  constructor(name, age, fees) {
     super(name, age);
-    this.kuch_bhi = kuch_bhi;
+    this.fees = fees;
   }
   detail() {
     console.log(
-      `This is student class ${this.name} ${this.age} ${this.kuch_bhi}`
+      `This is student class ${this.name} ${this.age} ${this.fees}`
     );
   }
 }
 class Teacher extends Human {
-  constructor(name, age, kuch_bhi_teacher) {
+  constructor(name, age, salary) {
     super(name, age);
-    this.kuch_bhi_teacher = kuch_bhi_teacher;
+    this.salary = salary;
   }
 
   detail() {
     console.log(
-      `This is teacher class ${this.name} ${this.age} ${this.kuch_bhi_teacher}`
+      `This is teacher class ${this.name} ${this.age} ${this.salary}`
     );
   }
 }
