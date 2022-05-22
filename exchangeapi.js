@@ -1,6 +1,7 @@
 
 
 // const express = require('express');
+import { debug } from 'console';
 import express from 'express';
 import fetch from 'node-fetch';
 import path from 'path';
@@ -12,6 +13,7 @@ const port = 3000;
 
 app.get('/:rate', (req, res) => {
     const getExchange = ()=>{
+        debugger;
         return new Promise((resolve,rejects)=>{
             fetch('https://v6.exchangerate-api.com/v6/46a3bede4893e033f4364408/latest/USD')
                 .then((response)=>{
@@ -34,6 +36,7 @@ app.get('/:rate', (req, res) => {
     }
 
     getExchangeByAwait().then((res)=>{
+        // debugger;
         console.log(req.params.rate * res.conversion_rates.PKR)
     })
     // getExchange
