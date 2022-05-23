@@ -1,8 +1,25 @@
 class User {
-  constructor(name, age, address) {
+  constructor(name, age, address, pswrd) {
     this.name = name;
     this.age = age;
     this.address = address;
+    this.pswrd = pswrd;
+  }
+
+  get password() {
+    return this.pswrd;
+  }
+  set password(pass) {
+    if (pass.length < 6) {
+     console.log("Password must contain 6 character")
+      // throw new Error('Password must contain 6 character');
+      // throw new Error("Password must contain 6 character");
+      
+    }
+    else{
+      this.pswrd = pass;
+    }
+    
   }
 }
 class Admin extends User {
@@ -12,6 +29,7 @@ class Admin extends User {
 }
 
 let user = new User("faraz", 12, "karachi");
+
 
 // Human class
 
@@ -82,3 +100,6 @@ let manager = new Manager("faraz", 23, 1000);
 // manager.info();
 manager.salary12 = 109;
 console.log(manager.salary12);
+
+user.password = "hel";
+console.log("password", user.password);
