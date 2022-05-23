@@ -58,6 +58,12 @@ class Employee {
     this.age = age;
     this.salary = salary;
   }
+  get salary12() {
+    return `salary amount is ${this.salary} `;
+  }
+  set salary12(amount) {
+    this.salary = amount;
+  }
 }
 
 class Manager extends Employee {
@@ -73,4 +79,6 @@ class Manager extends Employee {
 }
 
 let manager = new Manager("faraz", 23, 1000);
-manager.info();
+// manager.info();
+manager.salary12 = 109;
+console.log(manager.salary12);
