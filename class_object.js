@@ -13,27 +13,25 @@ class Admin extends User {
 
 let user = new User("faraz", 12, "karachi");
 
-// Human class 
+// Human class
 
 class Human {
   constructor(name, age) {
     this.name = name;
     this.age = age;
   }
-  test(){
-      console.log("test")
+  test() {
+    console.log("test");
   }
 }
-// student class 
+// student class
 class Student extends Human {
   constructor(name, age, fees) {
     super(name, age);
     this.fees = fees;
   }
   detail() {
-    console.log(
-      `This is student class ${this.name} ${this.age} ${this.fees}`
-    );
+    console.log(`This is student class ${this.name} ${this.age} ${this.fees}`);
   }
 }
 class Teacher extends Human {
@@ -53,3 +51,26 @@ let student = new Student("faraz", 19, "hello world");
 let teacher = new Teacher("faraz", 24, "hello world 123");
 teacher.detail();
 student.detail();
+
+class Employee {
+  constructor(name, age, salary) {
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+  }
+}
+
+class Manager extends Employee {
+  info() {
+    let allowance = 100;
+    let accomadation = 200;
+    let total_salary = this.salary + allowance + accomadation;
+
+    console.log(
+      `Manager name is ${this.name} age is ${this.age} and total salary is ${total_salary} `
+    );
+  }
+}
+
+let manager = new Manager("faraz", 23, 1000);
+manager.info();
